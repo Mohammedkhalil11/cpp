@@ -1,8 +1,9 @@
-NAME = Moar_brainz
+NAME = Harl_2.0
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 SOURCES = main.cpp\
+		Harl.cpp\
 
 OBJECTS = ${SOURCES:.cpp=.o}
 

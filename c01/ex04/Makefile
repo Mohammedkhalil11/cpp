@@ -1,4 +1,4 @@
-NAME = Moar_brainz
+NAME = Sed_is_for_losers
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f

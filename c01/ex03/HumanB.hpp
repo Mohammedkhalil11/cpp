@@ -17,24 +17,13 @@
 class HumanB
 {
     private:
-        Weapon Uzi;
+        Weapon *Uzi;
         std::string name;
     public:
-        HumanB(/* args */);
+        HumanB(std::string Name);
         ~HumanB();
-        void attack();
+        void attack() const;
+        void setWeapon(Weapon& newWeapon);
 };
-
-void HumanB::attack()
-{
-    std::cout<<name<<" attacks with their "<<Uzi.getType()<<std::endl;
-}
-HumanB::HumanB()
-{
-}
-
-HumanB::~HumanB()
-{
-}
 
 #endif

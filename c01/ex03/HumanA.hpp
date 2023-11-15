@@ -17,26 +17,12 @@
 class HumanA
 {
     private:
-        Weapon Akm;
+        Weapon &Akm;
         std::string name;
     public:
-        HumanA(Weapon &A);
+        HumanA(const std::string &Name, Weapon &A);
         ~HumanA();
         void attack();
 };
-
-void HumanA::attack()
-{
-    std::cout<<name<<" attacks with their "<<Akm.getType()<<std::endl;
-}
-
-HumanA::HumanA(Weapon &A)
-{
-    Akm = A;
-}
-
-HumanA::~HumanA()
-{
-}
 
 #endif

@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 05:11:10 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/13 05:11:11 by mokhalil         ###   ########.fr       */
+/*   Created: 2023/11/13 22:02:53 by mokhalil          #+#    #+#             */
+/*   Updated: 2023/11/15 04:53:11 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-void HumanA::attack()
+#include <string>
+#include <iostream>
+
+class Harl
 {
-    std::cout<<name<<" attacks with their "<<Akm.getType()<<std::endl;
-}
-
-HumanA::HumanA(const std::string &Name, Weapon &A):name(Name), Akm(A)
-{
-}
-
-HumanA::~HumanA(){}
+    private:
+		void debug( void );
+		void info( void );
+		void warning( void );
+		void error( void );
+	public:
+		void complain( std::string level );
+};
+#endif
