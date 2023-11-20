@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mokhalil <mokhalil@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 12:58:49 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/01 15:56:39 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/20 12:28:08 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int main(int argc, char **argv)
                 arg[j] = std::toupper(arg[j]);
                 j++;
             }
-            std::cout << arg << " ";
+            std::cout << arg;
         }
         std::cout << std::endl;
     }

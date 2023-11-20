@@ -6,12 +6,13 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 04:28:20 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/11 04:32:14 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:00:33 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
+static int index = 0;
 int	check_noprintables(std:: string s)
 {
 	int i;
@@ -70,12 +71,8 @@ PhoneBook::PhoneBook() : contactCount(0) {}
 PhoneBook :: ~PhoneBook(){};
 void PhoneBook::addContact()
 {
-    if (contactCount == 8)
-    {
-        for (int i = 0; i < 7; i++)
-            contacts[i] = contacts[i + 1];
-        contactCount = 7;
-    }
+    if (index == 8)
+        index = 0;
     std::string first, last, nick, phone, secret;
     std::cout << "Enter First Name: ";
     std::getline(std::cin ,first);
@@ -93,8 +90,14 @@ void PhoneBook::addContact()
     std::getline(std::cin ,secret);
     check(&secret, "Enter Darkest Secret: ");
     
-    contacts[contactCount] = Contact(first, last, nick, phone, secret);
-    contactCount++;
+    contacts[index] = Contact(first, last, nick, phone, secret);
+    if (contactCount < 8)
+    {
+        contactCount++;
+        index++;
+    }
+    else
+        contactCount = 8;
 }
 
 void PhoneBook::searchContact()
@@ -107,6 +110,7 @@ void PhoneBook::searchContact()
     std::cout << "Enter the index of the contact you wan t to display: ";
     std::string line;
     std::getline(std::cin, line);
+    check_number(&line, "Enter the index of the contact you wan t to display: ");
     int index = std::stoi(line);
     if (index > 0 && index <= contactCount && !contacts[index - 1].isEmpty())
     {
