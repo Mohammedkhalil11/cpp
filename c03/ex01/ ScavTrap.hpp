@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*    ScavTrap.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 19:47:16 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/21 20:03:11 by mokhalil         ###   ########.fr       */
+/*   Created: 2023/11/22 02:54:05 by mokhalil          #+#    #+#             */
+/*   Updated: 2023/11/22 02:57:09 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Fixed.hpp"
+#ifndef SCAVTRAP_HPP
+#define SCAVTRAP_HPP
 
-int main( void )
+#include "ClapTrap.hpp"
+
+class ScavTrap : public ClapTrap
 {
-    Fixed a;
-    Fixed const b(Fixed( 5.05f ) * Fixed( 2 ));
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;
-    return 0;
-}
+    public:
+		ScavTrap();
+		ScavTrap(std::string name);
+		ScavTrap(ScavTrap &obj);
+		~ScavTrap();
+		ScavTrap &operator=(const ScavTrap &obj);
+};
+
+#endif

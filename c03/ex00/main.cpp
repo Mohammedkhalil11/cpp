@@ -5,23 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/19 19:47:16 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/21 20:03:11 by mokhalil         ###   ########.fr       */
+/*   Created: 2023/11/22 00:13:30 by mokhalil          #+#    #+#             */
+/*   Updated: 2023/11/22 01:07:27 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Fixed.hpp"
+#include "ClapTrap.hpp"
 
-int main( void )
+int main(void)
 {
-    Fixed a;
-    Fixed const b(Fixed( 5.05f ) * Fixed( 2 ));
-    std::cout << a << std::endl;
-    std::cout << ++a << std::endl;
-    std::cout << a << std::endl;
-    std::cout << a++ << std::endl;
-    std::cout << a << std::endl;
-    std::cout << b << std::endl;
-    std::cout << Fixed::max( a, b ) << std::endl;
-    return 0;
+	ClapTrap	a;
+	ClapTrap	b("Morgan");
+
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	b.takeDamage(3);
+	std::cout << b << std::endl;
+	b.takeDamage(20);
+	std::cout << b << std::endl;
+	b.beRepaired(3);
+	std::cout << b << std::endl;
+	b.attack("Eric");
+	b.attack("Eric");
+	std::cout << b << std::endl;
+	b.attack("Eric");
+	std::cout << b << std::endl;
+	b.beRepaired(6);
+	std::cout << b << std::endl;
+	b.attack("Eric");
 }

@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 05:28:02 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/20 01:28:14 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/22 02:51:36 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ Fixed::~Fixed()
 
 void Fixed::setRawBits( int const raw )
 {
-	fixed = raw;
+	fixed = raw<<number_fractionnal_bits;
 }
 
 int Fixed::getRawBits( void ) const

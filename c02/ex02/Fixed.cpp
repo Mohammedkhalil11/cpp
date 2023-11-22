@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 05:28:02 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/20 02:08:43 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/22 02:50:52 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,20 @@ Fixed & Fixed::operator=(const Fixed &obj)
 
 Fixed::Fixed()
 {
-    fixed = 0 << number_fractionnal_bits;
+    fixed = 0;
     std::cout<<"Default constructor called"<<std::endl;
 }
 
 Fixed::Fixed(const int number)
 {
     fixed = number << number_fractionnal_bits;
-    std::cout<<"Default constructor called"<<std::endl;
+    std::cout<<"int constructor called"<<std::endl;
 }
 
 Fixed::Fixed(const float number)
 {
     fixed = roundf(number * ((float)(1 << number_fractionnal_bits)));
-    std::cout<<"Default constructor called"<<std::endl;
+    std::cout<<"float constructor called"<<std::endl;
 }
 
 Fixed::~Fixed()
@@ -62,7 +62,7 @@ Fixed::~Fixed()
 
 void Fixed::setRawBits( int const raw )
 {
-	fixed = raw;
+	fixed = raw<<number_fractionnal_bits;
 }
 
 int Fixed::getRawBits( void ) const
@@ -91,11 +91,11 @@ int Fixed::toInt( void ) const
  }
  bool Fixed::operator>(const Fixed &number)
  {
-    return(fixed > number.getRawBits());
+    return(this->fixed > number.getRawBits());
  }
  bool Fixed::operator>=(const Fixed &number)
  {
-    return(fixed >= number.getRawBits());
+    return(this->fixed >= number.getRawBits());
  }
  bool Fixed::operator==(const Fixed &number)
  {
@@ -118,23 +118,28 @@ Fixed Fixed::operator-(const Fixed &number)
 
 Fixed Fixed::operator*(const Fixed &number)
 {
-   return Fixed(this->toFloat() * number.toFloat());
+   return Fixed(this->toFloat() * number.toFloat()) / (float)(1 << number_fractionnal_bits);
 }
 
 Fixed Fixed::operator/(const Fixed &number)
 {
     if (number.toFloat() != 0)
-        return Fixed(this->toFloat() / number.toFloat());
-    return (0);
+    {
+        float a = (this->toFloat() / number.toFloat()) * (float)(1 << number_fractionnal_bits);
+        return Fixed(a);
+    }return (0);
 }
 
-Fixed& Fixed::operator++() {
-    fixed += 1 << number_fractionnal_bits;
+//pre-increment
+Fixed& Fixed::operator++()
+{
+    fixed = fixed + (float)(1);
     return *this;
 }
 
+//post-increment
 Fixed Fixed::operator++(int) {
-    Fixed temp(*this);
+     Fixed temp(*this);
     ++(*this);
     return temp;
 }
@@ -146,7 +151,31 @@ Fixed& Fixed::operator--() {
 }
 
 Fixed Fixed::operator--(int) {
-    Fixed temp(*this);
-    --(*this);
-    return temp;
+    fixed -= 1 << number_fractionnal_bits;
+    return *this;
+}
+
+Fixed &Fixed::max(Fixed &number1, Fixed &number2)
+{
+    if (number1 > number2)
+        return (number1);
+    return (number2);
+}
+Fixed &Fixed::min(Fixed &number1, Fixed &number2)
+{
+    if (number1 <= number2)
+        return (number1);
+    return (number2);
+}
+const Fixed &Fixed::max(Fixed const &number1, Fixed const &number2)
+{
+    if (number1.toFloat() > number2.toFloat())
+        return (number1);
+    return (number2);
+}
+const Fixed &Fixed::min(Fixed const &number1, Fixed const &number2)
+{
+    if (number1.toFloat() < number2.toFloat())
+        return (number1);
+    return (number2);
 }
