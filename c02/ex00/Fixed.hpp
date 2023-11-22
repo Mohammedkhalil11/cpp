@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 05:27:50 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/20 00:51:58 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/22 15:48:55 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class Fixed
 {
     private :
         int fixed;
-        static const int number_fractionnal_bits = 8;
+        static const int number_fractionnal_bits;
     public :
         Fixed();
         Fixed(const Fixed &fixed2);

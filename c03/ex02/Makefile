@@ -1,10 +1,10 @@
-NAME = Serena_my_love
+NAME = Repetitive_work
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 SOURCES = main.cpp\
 		ClapTrap.cpp\
-		ScavTrap.cpp\
+		FragTrap.cpp\
 
 OBJECTS = ${SOURCES:.cpp=.o}
 

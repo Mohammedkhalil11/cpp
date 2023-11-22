@@ -6,11 +6,11 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 00:13:30 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/22 14:49:26 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/22 18:59:49 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 
 int main(void)
@@ -20,9 +20,8 @@ int main(void)
 	clap.takeDamage(5);
 	clap.beRepaired(3);
 
-	ScavTrap scav("SC4V-TP");
-	scav.attack("Skag");
-	scav.guardGate();
+	FragTrap Frag("SC4V-TP");
+	Frag.attack("Skag");
 
 	return 0;
 } 
