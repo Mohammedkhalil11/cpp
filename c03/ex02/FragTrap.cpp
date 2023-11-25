@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:14:53 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/22 18:57:56 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/26 00:52:33 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,9 @@ FragTrap &FragTrap::operator=(const FragTrap &obj)
 	return (*this);
 }
 
-FragTrap::FragTrap(FragTrap &obj)
+FragTrap::FragTrap(FragTrap &obj):ClapTrap(obj)
 {
 	std::cout<<"FragTrap Copy Constructor"<<std::endl;
-	operator=(obj);
 }
 
 void FragTrap::highFivesGuys(void)

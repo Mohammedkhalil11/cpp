@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 00:40:33 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/13 01:51:31 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/23 18:37:22 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void    Zombie::announce()
 {
-    std::cout<<this->name<<": BraiiiiiiinnnzzzZ..."<<std::endl;
+    std::cout<<this->get_name()<<": BraiiiiiiinnnzzzZ..."<<std::endl;
 }
 Zombie::Zombie(std::string s)
 {
@@ -24,4 +24,14 @@ Zombie::Zombie(std::string s)
 Zombie::~Zombie()
 {
     std::cout<<"destructor of Zombie "<<name<<std::endl;
+}
+
+std::string Zombie::get_name()const
+{
+    return(this->name);
+}
+
+void  Zombie::set_name(std::string newName)
+{
+    name = newName;
 }

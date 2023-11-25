@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 22:02:49 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/15 04:57:36 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/23 10:12:38 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,13 @@ void Harl::complain( std::string level)
 	{
 		case 0:
 			(this->*function[0])();
+			break;
 		case 1:
 			(this->*function[1])();
+			break;
 		case 2:
 			(this->*function[2])();
+			break;
 		case 3:
 			(this->*function[3])();
 			break;

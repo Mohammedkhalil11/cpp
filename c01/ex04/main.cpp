@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 21:22:39 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/13 22:01:12 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/22 22:49:27 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,15 @@ std::string replaceSubstring(const std::string& mainString, const std::string& s
 int main(int ac, char **av)
 {
 	if (ac != 4)
+	{
+		std::cout<<"3 arguments are required"<<std::endl;
 		exit(1);
+	}
+	if (av[2][0] == '\0')
+	{
+		std::cout<<"invalide inpute"<<std::endl;
+		exit(1);
+	}
 	std::ifstream inputFile(av[1]);
 	if (!inputFile.is_open())
 	{

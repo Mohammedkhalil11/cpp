@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 00:13:26 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/22 15:08:35 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/26 00:51:57 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 	if (HitPoints > 0)
 	{
 		std::cout<<"Take damage of "<<amount<<std::endl;
-		if (HitPoints - amount >= 0)
+		if (HitPoints - amount > 0)
 			HitPoints-= amount;
 		else
 			HitPoints = 0;

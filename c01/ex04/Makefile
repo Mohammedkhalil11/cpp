@@ -8,6 +8,9 @@ OBJECTS = ${SOURCES:.cpp=.o}
 
 all : $(NAME)
 
+%.o : %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
 $(NAME): $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
 

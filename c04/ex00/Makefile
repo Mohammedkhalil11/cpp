@@ -1,9 +1,11 @@
-NAME = Fixeed
+NAME = Polymorphism
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
 SOURCES = main.cpp\
-		Fixed.cpp\
+		Animal.cpp\
+		Dog.cpp\
+		Cat.cpp\
 
 OBJECTS = ${SOURCES:.cpp=.o}
 

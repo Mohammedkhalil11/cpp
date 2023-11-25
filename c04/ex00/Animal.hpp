@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/22 15:15:04 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/26 00:49:34 by mokhalil         ###   ########.fr       */
+/*   Created: 2023/11/25 12:37:53 by mokhalil          #+#    #+#             */
+/*   Updated: 2023/11/26 00:36:56 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRAGTRAP_HPP
-#define FRAGTRAP_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-#include "ClapTrap.hpp"
+#include<iostream>
+#include<string>
 
-class FragTrap : public ClapTrap
+class Animal
 {
+    protected:
+        std::string type;
     public:
-		FragTrap();
-		FragTrap(std::string name);
-		FragTrap(FragTrap &obj);
-		~FragTrap();	
-		FragTrap &operator=(const FragTrap &obj);
-        void highFivesGuys(void);
-        void attack(const std::string& target);
+        Animal();
+        Animal(const Animal &obj);
+        Animal(std::string NewType);
+        Animal &operator=(const Animal &obj);
+        virtual ~Animal();
+        virtual void makeSound();
+        std::string get_type() const;
+        void set_type(std::string NewType);
 };
+
 #endif
