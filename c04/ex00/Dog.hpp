@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 13:17:32 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/26 00:36:47 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/27 18:07:42 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class Dog: public Animal
 		Dog(const Dog &obj);
     	Dog(std::string NewType);
 		Dog &operator=(const Dog &obj);
-		void makeSound();
+		void makeSound() const;
 };
 
 #endif

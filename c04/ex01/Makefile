@@ -1,6 +1,6 @@
-NAME = Polymorphism
+NAME = I_don’t_want_to_set_the_world_on_fire
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 RM = rm -f
 SOURCES = main.cpp\
 		Animal.cpp\
@@ -8,6 +8,7 @@ SOURCES = main.cpp\
 		Cat.cpp\
 		WrongAnimal.cpp\
 		WrongCat.cpp\
+		Brain.cpp\
 
 OBJECTS = ${SOURCES:.cpp=.o}
 

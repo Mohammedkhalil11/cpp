@@ -1,29 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/25 13:08:48 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/26 15:53:56 by mokhalil         ###   ########.fr       */
+/*   Created: 2023/11/27 23:56:37 by mokhalil          #+#    #+#             */
+/*   Updated: 2023/11/27 23:56:51 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
-
-#include "Animal.hpp"
-
-class Cat: public Animal
-{
-	public:
-		Cat();
-		~Cat();
-		Cat(const Cat &obj);
-    	Cat(std::string NewType);
-		Cat &operator=(const Cat &obj);
-		void makeSound() const;
-};
+#ifndef CURE_HPP
+#define CURE_HPP
 
 #endif

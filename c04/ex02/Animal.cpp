@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 12:37:40 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/26 16:46:51 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/27 18:14:43 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,11 +42,6 @@ Animal::Animal(const Animal &obj)
 Animal::~Animal()
 {
 	std::cout<<"Destractor of Animal"<<std::endl;
-}
-
-void Animal::makeSound() const
-{
-	std::cout<<"Animal make sound!!"<<std::endl;	
 }
 
 std::string Animal::get_type() const

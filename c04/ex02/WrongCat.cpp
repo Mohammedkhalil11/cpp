@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/25 13:08:48 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/26 15:53:56 by mokhalil         ###   ########.fr       */
+/*   Created: 2023/11/26 16:10:38 by mokhalil          #+#    #+#             */
+/*   Updated: 2023/11/26 17:03:16 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#include "WrongCat.hpp"
 
-#include "Animal.hpp"
-
-class Cat: public Animal
+WrongCat::WrongCat()
 {
-	public:
-		Cat();
-		~Cat();
-		Cat(const Cat &obj);
-    	Cat(std::string NewType);
-		Cat &operator=(const Cat &obj);
-		void makeSound() const;
-};
+    std::cout<<"Default constroctor of WrongCat"<<std::endl;
+}
 
-#endif
+WrongCat::~WrongCat()
+{
+    std::cout<<"Destractor of WrongCat"<<std::endl;
+}
+
+void    WrongCat::makeSound() const
+{
+	std::cout<<"WrongCat make sound!"<<std::endl;
+}

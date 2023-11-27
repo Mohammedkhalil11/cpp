@@ -1,6 +1,6 @@
-NAME = Polymorphism
+NAME = Abstract_class
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 RM = rm -f
 SOURCES = main.cpp\
 		Animal.cpp\
@@ -8,6 +8,7 @@ SOURCES = main.cpp\
 		Cat.cpp\
 		WrongAnimal.cpp\
 		WrongCat.cpp\
+		Brain.cpp\
 
 OBJECTS = ${SOURCES:.cpp=.o}
 

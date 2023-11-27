@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 13:26:24 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/26 00:41:27 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/27 18:07:16 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Cat::Cat()
 {
+	type = "Cat";
     std::cout<<"Default constractor of Cat"<<std::endl;
 }
 
@@ -24,22 +25,27 @@ Cat::~Cat()
 
 Cat::Cat(const Cat &obj):Animal(obj)
 {
-	*this = obj;
+	if (this != &obj)
+	{
+		std::cout<<"Copy constractor of Cat"<<std::endl;
+		*this = obj;
+	}
 }
 
 Cat::Cat(std::string NewType)
 {
     type = NewType;
-	std::cout<<"Parametrise constractor of Cat"<<std::endl;
+	std::cout<<"Parameterized constractor of Cat"<<std::endl;
 }
 
 Cat &Cat::operator=(const Cat &obj)
 {
+	std::cout<<"Copy assignment operator of Cat"<<std::endl;
 	this->type = obj.type;
 	return(*this);
 }
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
-	std::cout<<"Cat make sound!!"<<std::endl;
+	std::cout<<"The Cat Meow!!"<<std::endl;
 }

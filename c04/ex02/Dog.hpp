@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/25 13:08:48 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/26 15:53:56 by mokhalil         ###   ########.fr       */
+/*   Created: 2023/11/25 13:17:32 by mokhalil          #+#    #+#             */
+/*   Updated: 2023/11/27 13:17:30 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef Dog_HPP
+#define Dog_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-class Cat: public Animal
+class Dog: public Animal
 {
+	private:
+		Brain* brain;
 	public:
-		Cat();
-		~Cat();
-		Cat(const Cat &obj);
-    	Cat(std::string NewType);
-		Cat &operator=(const Cat &obj);
+		Dog();
+		~Dog();
+		Dog(const Dog &obj);
+    	Dog(std::string NewType, std::string idea);
+		Dog &operator=(const Dog &obj);
 		void makeSound() const;
+		void set_Brain(Brain *other_brain);
+		Brain *getBrain() const;
+		void compareTo(Dog const & other_dog) const;
 };
 
 #endif

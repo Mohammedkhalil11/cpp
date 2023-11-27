@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 13:08:48 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/26 15:53:56 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/27 12:58:28 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,21 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat: public Animal
 {
+	private:
+		Brain *brain;
 	public:
 		Cat();
 		~Cat();
 		Cat(const Cat &obj);
-    	Cat(std::string NewType);
+    	Cat(std::string NewType, std::string idea);
 		Cat &operator=(const Cat &obj);
-		void makeSound() const;
+		Brain *getBrain() const;
+		void set_Brain(Brain *other_brain);
+		void makeSound() const;void compareTo(Cat const & other_cat) const;
 };
 
 #endif
