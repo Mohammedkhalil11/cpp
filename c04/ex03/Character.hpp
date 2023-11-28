@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:30:50 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/28 11:32:05 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/28 23:32:08 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,23 @@
 #define CHARACTER_HPP
 
 #include "ICharacter.hpp"
+#include "Cure.hpp"
+#include "Ice.hpp"
 
 class Character : public ICharacter
 {
-private:
-    /* data */
-public:
-    Character(/* args */);
-    ~Character();
+    private:
+        std::string name;
+        AMateria *inventory[4];
+    public:
+        Character(std::string newName);
+        Character(Character const &obj);
+        Character &operator=(Character const &obj);
+        ~Character();
+        std::string const & getName() const;
+        void equip(AMateria* m);
+        void unequip(int idx);
+        void use(int idx, ICharacter& target);
 };
 
 
