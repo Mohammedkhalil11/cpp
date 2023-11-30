@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 23:53:50 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/28 23:26:48 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/29 23:56:00 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,17 @@ std::string const & AMateria::getType() const
     return(this->type);
 }
 
+void AMateria::setType(std::string NewType)
+{
+    this->type = NewType;
+}
+
 void AMateria::use(ICharacter& target)
 {
     std::cout<<target.getName()<<" Say hello from AMateria"<<std::endl;
 }
 
-AMateria* AMateria::clone() const
-{
-    return (AMateria*)this;
-}
+// AMateria* AMateria::clone() const
+// {
+//     return (AMateria*)this;
+// }

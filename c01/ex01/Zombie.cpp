@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 00:40:33 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/13 02:25:03 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/30 16:01:31 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void    Zombie::announce()
 Zombie::Zombie(std::string s)
 {
     this->name = s;
+    std::cout<<"constructor of Zombie "<<name<<std::endl;
 }
 
 Zombie::~Zombie()

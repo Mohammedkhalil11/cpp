@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 05:11:10 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/30 16:03:10 by mokhalil         ###   ########.fr       */
+/*   Created: 2023/11/13 22:02:25 by mokhalil          #+#    #+#             */
+/*   Updated: 2023/11/15 04:51:51 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#include "Harl.hpp"
 
-void HumanA::attack()
-{
-    std::cout<<name<<" attacks with their "<<Akm.getType()<<std::endl;
-}
 
-HumanA::HumanA(const std::string &Name, Weapon &A):name(Name), Akm(A)
+int main(int argc, char **argv)
 {
-    std::cout<<"constructor of HumanA "<<name<<std::endl;
-}
-
-HumanA::~HumanA()
-{
-    std::cout<<"destructor of HumanA "<<name<<std::endl;
+	Harl harl;
+	if (argc == 2)
+		harl.complain(argv[1]);
+	else
+		harl.complain("irrelevant string");
+	return (EXIT_SUCCESS);
 }

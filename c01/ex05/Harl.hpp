@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 22:02:53 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/15 04:53:11 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/30 23:37:49 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include <cstdlib>
 
 class Harl
 {

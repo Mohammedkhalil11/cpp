@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanA.cpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/13 05:11:10 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/30 16:03:10 by mokhalil         ###   ########.fr       */
+/*   Created: 2023/11/13 22:02:53 by mokhalil          #+#    #+#             */
+/*   Updated: 2023/11/30 23:37:59 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanA.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-void HumanA::attack()
-{
-    std::cout<<name<<" attacks with their "<<Akm.getType()<<std::endl;
-}
+#include <string>
+#include <iostream>
+#include <cstdlib>
 
-HumanA::HumanA(const std::string &Name, Weapon &A):name(Name), Akm(A)
+class Harl
 {
-    std::cout<<"constructor of HumanA "<<name<<std::endl;
-}
-
-HumanA::~HumanA()
-{
-    std::cout<<"destructor of HumanA "<<name<<std::endl;
-}
+    private:
+		void debug( void );
+		void info( void );
+		void warning( void );
+		void error( void );
+	public:
+		void complain( std::string level );
+};
+#endif

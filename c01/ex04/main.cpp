@@ -6,13 +6,14 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 21:22:39 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/22 22:49:27 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/29 18:44:43 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <cstdlib>
 
 std::string replaceSubstring(const std::string& mainString, const std::string& searchString, const std::string& replacementString)
 {
@@ -47,7 +48,7 @@ int main(int ac, char **av)
 	}
 	std::string file = av[1];
 	file += ".replace";
-	std::ofstream outputFile(file);
+	std::ofstream outputFile(file.c_str());
 	if (!outputFile.is_open()) {
         std::cerr << "Error opening the file." << std::endl;
         return 1;

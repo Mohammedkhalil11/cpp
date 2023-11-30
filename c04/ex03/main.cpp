@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 19:51:08 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/27 15:14:04 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/30 23:32:10 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int main( void )
 	std::cout << std::endl;
 	std::cout << std::endl;
 
-	// Proof of deep copy
 	Dog medor;
 	Cat fifi;
 

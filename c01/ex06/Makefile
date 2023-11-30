@@ -1,4 +1,4 @@
-NAME = Harl_2.0
+NAME = harlFilter
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 RM = rm -f
@@ -11,7 +11,7 @@ all : $(NAME)
 
 %.o : %.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
-	
+
 $(NAME): $(OBJECTS)
 	$(CC) $(CFLAGS) $(OBJECTS) -o $(NAME)
 

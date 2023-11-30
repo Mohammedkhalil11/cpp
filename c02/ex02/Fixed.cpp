@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 05:28:02 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/22 15:51:42 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/30 16:42:27 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ std::ostream &operator<<(std::ostream &COUT, const Fixed &number)
 
 Fixed::Fixed(const Fixed &fixed2)
 {
-    if (&fixed2)
     {
         this->fixed = fixed2.fixed;
         std::cout<<"Copy constructor called"<<std::endl;
@@ -146,13 +145,14 @@ Fixed Fixed::operator++(int) {
 
 // Decrement operators
 Fixed& Fixed::operator--() {
-     fixed -= 1 << number_fractionnal_bits;
+     fixed = fixed - (float)(1);
     return *this;
 }
 
 Fixed Fixed::operator--(int) {
-    fixed -= 1 << number_fractionnal_bits;
-    return *this;
+    Fixed temp(*this);
+    --(*this);
+    return temp;
 }
 
 Fixed &Fixed::max(Fixed &number1, Fixed &number2)

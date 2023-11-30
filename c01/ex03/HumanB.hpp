@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 05:12:05 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/13 05:25:32 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/11/29 18:38:12 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@
 class HumanB
 {
     private:
-        Weapon *Uzi;
         std::string name;
+        Weapon *Uzi;
     public:
         HumanB(std::string Name);
         ~HumanB();
