@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:23:01 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/28 23:30:35 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/01 13:01:29 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,17 @@ Cure::~Cure()
 Cure::Cure(Cure const &obj): AMateria("cure")
 {
     std::cout<<"Copy constractor of Cure"<<std::endl;
-    if (this != &obj)
-        *this = obj;
+    *this = obj;
 }
 
 Cure &Cure::operator=(Cure const & obj)
 {
-    std::cout<<"Copy assignment operator of Cure"<<std::endl;
-    this->type = obj.getType();   
+    if (this != &obj)
+    {
+        this->type = obj.getType();   
+        std::cout<<"Copy assignment operator of Cure"<<std::endl;
+    }
+    return *this;
 }
 
 AMateria* Cure::clone() const

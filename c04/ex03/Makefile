@@ -1,14 +1,13 @@
-NAME = Interface_&_recap
+NAME = Interface_recap
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address
 RM = rm -f
 SOURCES = main.cpp\
-		Animal.cpp\
-		Dog.cpp\
-		Cat.cpp\
-		WrongAnimal.cpp\
-		WrongCat.cpp\
-		Brain.cpp\
+		AMateria.cpp\
+		Character.cpp\
+		Cure.cpp\
+		Ice.cpp\
+		MateriaSource.cpp\
 
 OBJECTS = ${SOURCES:.cpp=.o}
 

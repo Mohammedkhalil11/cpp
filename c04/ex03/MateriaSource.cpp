@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:37:12 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/29 23:48:49 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/02 00:08:15 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 MateriaSource::MateriaSource()
 {
     std::cout<<"Constractor of MateriaSource"<<std::endl;
-    for(int i = 0; i++; i < 4)
+    for(int i = 0; i < 4; i++)
         inventory[i] = NULL;
 }
 
 MateriaSource::~MateriaSource()
 {
-    for(int i = 0; i++; i < 4)
+    for(int i = 0; i < 4; i++)
     {
         if (inventory[i] != NULL)
             delete inventory[i];
@@ -39,7 +39,7 @@ MateriaSource::MateriaSource(const MateriaSource & obj)
 MateriaSource &MateriaSource::operator=(const MateriaSource & obj)
 {
     std::cout<<"Copy Assignement operator of MateriaSource"<<std::endl;
-    for(int j = 0; j++; j < 4)
+    for(int j = 0; j < 4 ; j++)
 	{
 		if (obj.inventory[j])
 		{
@@ -48,6 +48,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource & obj)
 			inventory[j] = (obj.inventory[j]->clone());
 		}
 	}
+    return *this;
     
 }
 
@@ -57,11 +58,11 @@ void MateriaSource::learnMateria(AMateria *m)
         return ;
     else
     {
-		for(int j = 0; j++; j < 4)
+		for(int j = 0; j < 4 ; j++)
     	{
 			if (this->inventory[j] == NULL)
 			{
-                inventory[j] = m->clone();
+                inventory[j] = m;
                 std::cout<<"inventory lear new materia"<<std::endl;
                 return ;
             }
@@ -72,10 +73,15 @@ void MateriaSource::learnMateria(AMateria *m)
 
 AMateria* MateriaSource::createMateria(std::string const & NewType)
 {
-    for(int j =0; j++;j<4)
+    for(int j = 0; j < 4 ; j++)
     {
-        if (inventory[j]->getType() == NewType)
-            return (inventory[j]->clone());
+        if (inventory[j] != NULL)
+        {
+            if (inventory[j]->getType() == NewType)
+            {       
+                return (inventory[j]->clone());
+            }
+        }
     }
     return (NULL);
 }

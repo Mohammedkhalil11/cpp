@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:30:40 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/30 00:12:36 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/02 00:08:02 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 Character::Character(std::string newName)
 {
     this->name = newName;
-    for(int j = 0; j++; j < 4)
+    for(int j = 0; j < 4 ; j++)
         inventory[j] = NULL;
     std::cout<<"Parameterized constractor of Character"<<std::endl;
 }
 
 Character::~Character()
 {
-	for(int i = 0; i++; i < 4)
+	for(int i = 0; i < 4 ; i++)
     {
         if (inventory[i] != NULL)
             delete inventory[i];
@@ -33,23 +33,26 @@ Character::~Character()
 Character::Character(Character const &obj)
 {
     std::cout<<"Copy constractor of Character"<<std::endl;
-    if (this != &obj)
-        *this = obj;
+    *this = obj;
 }
 
 Character &Character::operator=(Character const & obj)
 {
-    std::cout<<"Copy assignment operator of Character"<<std::endl;
-    this->name = obj.getName();
-	for(int j = 0; j++; j < 4)
-	{
-		if (obj.inventory[j])
-		{
-			if (inventory[j] != NULL)
-				delete inventory[j];
-			inventory[j] = (obj.inventory[j]->clone());
-		}
-	}
+    if (this != &obj)
+    {
+        this->name = obj.getName();
+        for(int j = 0; j < 4 ; j++)
+        {
+            if (obj.inventory[j])
+            {
+                if (inventory[j] != NULL)
+                    delete inventory[j];
+                inventory[j] = (obj.inventory[j]->clone());
+            }
+        }
+        std::cout<<"Copy assignment operator of Character"<<std::endl;
+    }
+    return *this;
 }
 
 void Character::setName(std::string newName)
@@ -63,11 +66,11 @@ void Character::equip(AMateria* m)
         return ;
     else
     {
-		for(int j = 0; j++; j < 4)
+		for(int j = 0; j < 4 ; j++)
     	{
 			if (this->inventory[j] == NULL)
 			{
-                inventory[j] = m->clone();
+                inventory[j] = m;
                 return ;
             }
 			j++;

@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 23:53:50 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/29 23:56:00 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/01 12:58:39 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,17 @@ AMateria::AMateria(std::string const & newtype)
 AMateria::AMateria(AMateria const & obj)
 {
     std::cout<<"Copy constractor of AMateria"<<std::endl;
-    if (this != &obj)
-        *this = obj;
+    *this = obj;
 }
 
 AMateria &AMateria::operator=(AMateria const & obj)
 {
-    std::cout<<"Copy assignment operator of AMateria"<<std::endl;
-    this->type = obj.getType();   
+    if (this != &obj)
+    {
+        this->type = obj.getType();   
+        std::cout<<"Copy assignment operator of AMateria"<<std::endl;
+    }
+    return *this;
 }
 
 AMateria::~AMateria()
@@ -44,7 +47,7 @@ AMateria::~AMateria()
 
 std::string const & AMateria::getType() const
 {
-    return(this->type);
+        return(this->type);
 }
 
 void AMateria::setType(std::string NewType)
@@ -54,10 +57,5 @@ void AMateria::setType(std::string NewType)
 
 void AMateria::use(ICharacter& target)
 {
-    std::cout<<target.getName()<<" Say hello from AMateria"<<std::endl;
+    std::cout<<"AMateria "<<this->type<<" used on "<<target.getName()<<std::endl;
 }
-
-// AMateria* AMateria::clone() const
-// {
-//     return (AMateria*)this;
-// }
