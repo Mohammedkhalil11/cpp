@@ -6,11 +6,13 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:30:40 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/12/02 00:08:02 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/05 23:05:12 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
+#include "LinkedList.hpp"
+#include <cstdlib>
 
 Character::Character(std::string newName)
 {
@@ -26,6 +28,15 @@ Character::~Character()
     {
         if (inventory[i] != NULL)
             delete inventory[i];
+    }
+    if(list.head)
+    {
+        MateriaNode *tmp = list.head;
+        while (tmp)
+        {
+            free(tmp->data);
+            tmp = tmp->next;
+        }
     }
     std::cout<<"Destractor of Character"<<std::endl;
 }
@@ -82,12 +93,13 @@ void Character::unequip(int idx)
 {
     if (idx < 0 || idx > 3)
     {
-        std::cout<<"There is no slot in this idx"<<std::endl;
+        std::cout<<"There is no slot in this idx "<<idx<<std::endl;
         return ;
     }
     if (inventory[idx] != NULL)
     {
-        delete inventory[idx];
+        list.add_node(new MateriaNode(inventory[idx]));
+        inventory[idx] = NULL;
         std::cout<<"unquip Materia"<<std::endl;
     }
     else

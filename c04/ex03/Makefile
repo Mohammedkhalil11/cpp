@@ -8,6 +8,8 @@ SOURCES = main.cpp\
 		Cure.cpp\
 		Ice.cpp\
 		MateriaSource.cpp\
+		MateriaNode.cpp\
+		LinkedList.cpp\
 
 OBJECTS = ${SOURCES:.cpp=.o}
 
