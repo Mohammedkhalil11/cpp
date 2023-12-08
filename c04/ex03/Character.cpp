@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:30:40 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/12/05 23:05:12 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/08 23:53:04 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,20 +24,20 @@ Character::Character(std::string newName)
 
 Character::~Character()
 {
-	for(int i = 0; i < 4 ; i++)
-    {
-        if (inventory[i] != NULL)
-            delete inventory[i];
-    }
-    if(list.head)
-    {
-        MateriaNode *tmp = list.head;
-        while (tmp)
-        {
-            free(tmp->data);
-            tmp = tmp->next;
-        }
-    }
+	// for(int i = 0; i < 4 ; i++)
+    // {
+    //     if (inventory[i] != NULL)
+    //         delete inventory[i];
+    // }
+    // if(list.head)
+    // {
+    //     MateriaNode *tmp = list.head;
+    //     while (tmp)
+    //     {
+    //         delete tmp->data;
+    //         tmp = tmp->next;
+    //     }
+    // }
     std::cout<<"Destractor of Character"<<std::endl;
 }
 
@@ -82,9 +82,9 @@ void Character::equip(AMateria* m)
 			if (this->inventory[j] == NULL)
 			{
                 inventory[j] = m;
+                list.add_node(new MateriaNode(m));
                 return ;
             }
-			j++;
     	}
 	}
 }

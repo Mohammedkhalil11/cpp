@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:37:12 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/12/02 00:08:15 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/08 23:25:10 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ void MateriaSource::learnMateria(AMateria *m)
                 std::cout<<"inventory lear new materia"<<std::endl;
                 return ;
             }
-			j++;
     	}
 	}
 }
