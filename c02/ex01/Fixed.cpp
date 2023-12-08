@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 05:28:02 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/30 16:40:04 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:30:57 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 std::ostream &operator<<(std::ostream &COUT, const Fixed &number)
 {
-    COUT<<number.toFloat()<<std::endl;
+    COUT<<number.toFloat();
     return (COUT);
 }
 
@@ -28,30 +28,30 @@ Fixed::Fixed(const Fixed &fixed2)
 
 Fixed & Fixed::operator=(const Fixed &obj)
 {
+    std::cout<<"Copy assignment operator called "<<std::endl;
     if (this != &obj)
     {
         this->fixed = obj.fixed;
-        std::cout<<"Copy assignment operator called "<<std::endl;
 	}
 	return (*this);
 }
 
 Fixed::Fixed()
 {
-    fixed = 0 << number_fractionnal_bits;
+    fixed = 0;
     std::cout<<"Default constructor called"<<std::endl;
 }
 
 Fixed::Fixed(const int number)
 {
     fixed = number << number_fractionnal_bits;
-    std::cout<<"Default constructor called"<<std::endl;
+    std::cout<<"Int constructor called"<<std::endl;
 }
 
 Fixed::Fixed(const float number)
 {
     fixed = roundf(number * ((float)(1 << number_fractionnal_bits)));
-    std::cout<<"Default constructor called"<<std::endl;
+    std::cout<<"Float constructor called"<<std::endl;
 }
 
 Fixed::~Fixed()
@@ -72,7 +72,7 @@ int Fixed::getRawBits( void ) const
 
 float Fixed::toFloat( void ) const
 {
-    return (float) fixed / (float)(1 << number_fractionnal_bits);
+    return ((float) fixed / (float)(1 << number_fractionnal_bits));
 }
 
 int Fixed::toInt( void ) const

@@ -6,12 +6,12 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 05:27:50 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/30 16:37:18 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/04 19:55:48 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIRED_HPP
-#define FIRED_HPP
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include<iostream>
 #include<string>

@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 00:14:16 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/26 00:44:05 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/06 22:48:51 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ class ClapTrap
 		void takeDamage(unsigned int amount);
 		void beRepaired(unsigned int amount);
 		void Display(std::ostream &Cout);
-		friend std::ostream &operator<<(std::ostream &Cout, ClapTrap &obj);
 };
+std::ostream &operator<<(std::ostream &Cout, ClapTrap &obj);
 #endif

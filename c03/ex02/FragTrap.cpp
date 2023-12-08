@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 15:14:53 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/26 00:52:33 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/06 22:50:32 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,8 @@ void FragTrap::highFivesGuys(void)
 
 void FragTrap::attack(const std::string& target)
 {
+    if (HitPoints == 0)
+		std::cout <<"FragTrap "<<this->name<<" is already defeated!"<<std::endl;
     if (EnergyPoints > 0)
     {
         std::cout<<"FragTrap "<<name<<" attacks "<<target<<std::endl;

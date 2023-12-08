@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/15 05:28:02 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/30 16:42:27 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/04 20:45:03 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 std::ostream &operator<<(std::ostream &COUT, const Fixed &number)
 {
-    COUT<<number.toFloat()<<std::endl;
+    COUT<<number.toFloat();
     return (COUT);
 }
 
@@ -28,10 +28,10 @@ Fixed::Fixed(const Fixed &fixed2)
 
 Fixed & Fixed::operator=(const Fixed &obj)
 {
+    std::cout<<"Copy assignment operator called "<<std::endl;
     if (this != &obj)
     {
         this->fixed = obj.fixed;
-        std::cout<<"Copy assignment operator called "<<std::endl;
 	}
 	return (*this);
 }
@@ -129,21 +129,19 @@ Fixed Fixed::operator/(const Fixed &number)
     }return (0);
 }
 
-//pre-increment
 Fixed& Fixed::operator++()
 {
     fixed = fixed + (float)(1);
     return *this;
 }
 
-//post-increment
-Fixed Fixed::operator++(int) {
-     Fixed temp(*this);
+Fixed Fixed::operator++(int)
+{
+    Fixed temp(*this);
     ++(*this);
     return temp;
 }
 
-// Decrement operators
 Fixed& Fixed::operator--() {
      fixed = fixed - (float)(1);
     return *this;
@@ -157,13 +155,13 @@ Fixed Fixed::operator--(int) {
 
 Fixed &Fixed::max(Fixed &number1, Fixed &number2)
 {
-    if (number1 > number2)
+    if (number1.toFloat() > number2.toFloat())
         return (number1);
     return (number2);
 }
 Fixed &Fixed::min(Fixed &number1, Fixed &number2)
 {
-    if (number1 <= number2)
+    if (number1.toFloat() < number2.toFloat())
         return (number1);
     return (number2);
 }

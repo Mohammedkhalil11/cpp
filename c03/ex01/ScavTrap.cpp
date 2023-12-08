@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 14:38:27 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/22 15:33:54 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/06 22:58:16 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ ScavTrap::~ScavTrap()
 
 void ScavTrap::attack(const std::string& target)
 {
+    if (HitPoints == 0)
+		std::cout <<"ScavTrap "<<this->name<<" is already defeated!"<<std::endl;
     if (EnergyPoints > 0)
     {
         std::cout<<"ScavTrap "<<name<<" attacks "<<target<<std::endl;
@@ -64,7 +66,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &obj)
 	return (*this);
 }
 
-ScavTrap::ScavTrap(ScavTrap &obj)
+ScavTrap::ScavTrap(ScavTrap &obj):ClapTrap(obj)
 {
 	std::cout<<"ScavTrap Copy Constructor"<<std::endl;
 	operator=(obj);

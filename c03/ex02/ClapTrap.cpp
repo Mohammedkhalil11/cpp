@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 00:13:26 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/11/26 00:51:57 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/06 23:01:55 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,15 @@ ClapTrap::ClapTrap(ClapTrap &obj)
 ClapTrap &ClapTrap::operator=(const ClapTrap &obj)
 {
 	std::cout<<"ClapTrap Operator="<<std::endl;
-	name = obj.name;
-	MaxEnergyPoints = obj.MaxEnergyPoints;
-	MaxHitPoints = obj.MaxHitPoints;
-	EnergyPoints = obj.EnergyPoints;
-	HitPoints = obj.HitPoints;
-	AttackDammage = obj.AttackDammage;
+	if (this != &obj)
+	{
+		name = obj.name;
+		MaxEnergyPoints = obj.MaxEnergyPoints;
+		MaxHitPoints = obj.MaxHitPoints;
+		EnergyPoints = obj.EnergyPoints;
+		HitPoints = obj.HitPoints;
+		AttackDammage = obj.AttackDammage;
+	}
 	return (*this);
 }
 
@@ -48,6 +51,8 @@ ClapTrap::~ClapTrap()
 
 void ClapTrap::attack(const std::string& target)
 {
+	if (HitPoints == 0)
+		std::cout <<"ClapTrap "<<this->name<<" is already defeated!"<<std::endl;
     if (EnergyPoints > 0)
     {
         std::cout<<"ClapTrap "<<name<<" attacks "<<target<<std::endl;
@@ -73,6 +78,8 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
+	if (HitPoints == 0)
+		std::cout <<"ClapTrap "<<this->name<<" is already defeated!"<<std::endl;
 	if (EnergyPoints > 0)
     {
 		std::cout<<"Getting an amount of "<<amount<<std::endl;
@@ -88,7 +95,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 void ClapTrap::Display(std::ostream &Cout)
 {
-	Cout<<"Clap-TP "<<name<<" has "<<HitPoints<<" hit points, "<<EnergyPoints <<" energy points and "<<AttackDammage<<" attack dammage.";
+	Cout<<name<<" has "<<HitPoints<<" hit points, "<<EnergyPoints <<" energy points and "<<AttackDammage<<" attack dammage.";
 }
 
 std::ostream &operator<<(std::ostream &Cout, ClapTrap &obj)

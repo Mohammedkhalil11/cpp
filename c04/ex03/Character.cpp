@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:30:40 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/12/08 23:53:04 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/09 00:12:31 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ Character::~Character()
     //     MateriaNode *tmp = list.head;
     //     while (tmp)
     //     {
-    //         delete tmp->data;
+    //         if (tmp->data)
+    //             delete tmp->data;
     //         tmp = tmp->next;
     //     }
     // }
