@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:51:16 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/12/09 13:27:20 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:22:25 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ LinkedList& LinkedList::LinkedList::operator=(const LinkedList &list)
     }
     return (*this);
 }
+
 int check_for_duplicate_add(LinkedList *l, MateriaNode *n)
 {
     MateriaNode *tmp = l->head;

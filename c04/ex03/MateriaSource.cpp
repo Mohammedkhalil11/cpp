@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:37:12 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/12/09 13:29:49 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/09 16:25:43 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ MateriaSource::MateriaSource()
 
 MateriaSource::~MateriaSource()
 {
+    list.~LinkedList();
     for(int i = 0; i < 4; i++)
     {
         if (inventory[i] != NULL)
@@ -64,6 +65,7 @@ void MateriaSource::learnMateria(AMateria *m)
 			if (this->inventory[j] == NULL)
 			{
                 inventory[j] = m->clone();
+                list.add_node(new MateriaNode(m));
                 std::cout<<"inventory lear new materia"<<std::endl;
                 return ;
             }
@@ -78,8 +80,10 @@ AMateria* MateriaSource::createMateria(std::string const & NewType)
         if (inventory[j] != NULL)
         {
             if (inventory[j]->getType() == NewType)
-            {       
-                return (inventory[j]->clone());
+            {  
+                AMateria *ptr = inventory[j]->clone();
+                list.add_node(new MateriaNode(ptr));
+                return (ptr);
             }
         }
     }
