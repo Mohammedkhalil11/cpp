@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:51:16 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/12/09 16:22:25 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/10 00:43:25 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@ LinkedList::LinkedList()
 
 LinkedList::~LinkedList()
 {
+    MateriaNode *tmp = this->head;
+    while (tmp)
+    {
+        if (tmp->data != NULL)
+        {
+            delete tmp->data;
+            tmp->data = NULL;
+        }
+        tmp = tmp->next;
+    }
 }
 
 LinkedList::LinkedList(const LinkedList &list)
