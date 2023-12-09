@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:51:16 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/12/10 00:43:25 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/10 00:55:40 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int check_for_duplicate_add(LinkedList *l, MateriaNode *n)
     {
         if (tmp->data == n->data)
         {
+            delete n;
             return (1);
         }
         tmp = tmp->next;

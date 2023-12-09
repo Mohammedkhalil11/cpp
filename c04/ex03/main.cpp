@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 19:51:08 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/12/10 00:44:02 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/10 00:56:29 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,10 @@
 void f(void)
 {
 	IMateriaSource* src = new MateriaSource();
-	src->learnMateria(new Ice());
+	AMateria *p = new Ice();
+	src->learnMateria(p);
+	src->learnMateria(p);
+	src->learnMateria(p);
 	src->learnMateria(new Cure());
 	ICharacter* me = new Character("me");
 	AMateria* tmp;
