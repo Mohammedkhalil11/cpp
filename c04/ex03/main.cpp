@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 19:51:08 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/12/09 13:27:29 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/09 15:02:08 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void f(void)
 	delete bob;
 	delete me;
 	delete src;
+	// https://rphlr.github.io/42-Evals/Cursus/CPP04/
 }
 
 int main()
