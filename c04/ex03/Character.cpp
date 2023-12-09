@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 11:30:40 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/12/09 00:12:31 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/09 13:30:36 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,19 @@ Character::Character(std::string newName)
 
 Character::~Character()
 {
-	// for(int i = 0; i < 4 ; i++)
-    // {
-    //     if (inventory[i] != NULL)
-    //         delete inventory[i];
-    // }
-    // if(list.head)
-    // {
-    //     MateriaNode *tmp = list.head;
-    //     while (tmp)
-    //     {
-    //         if (tmp->data)
-    //             delete tmp->data;
-    //         tmp = tmp->next;
-    //     }
-    // }
+    if(list.head->data)
+    {
+        MateriaNode *tmp = list.head;
+        while (tmp)
+        {
+            if (tmp->data != NULL)
+            {
+                delete tmp->data;
+                tmp->data = NULL;
+            }
+            tmp = tmp->next;
+        }
+    }
     std::cout<<"Destractor of Character"<<std::endl;
 }
 
@@ -74,7 +72,7 @@ void Character::setName(std::string newName)
 
 void Character::equip(AMateria* m)
 {
-    if (!m)
+    if (!m || (m->getType().compare("ice") && m->getType().compare("cure")))
         return ;
     else
     {
@@ -82,8 +80,7 @@ void Character::equip(AMateria* m)
     	{
 			if (this->inventory[j] == NULL)
 			{
-                inventory[j] = m;
-                list.add_node(new MateriaNode(m));
+                inventory[j] = m;;
                 return ;
             }
     	}

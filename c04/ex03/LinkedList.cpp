@@ -6,7 +6,7 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 19:51:16 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/12/05 22:59:12 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/09 13:27:20 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,31 @@ LinkedList& LinkedList::LinkedList::operator=(const LinkedList &list)
 {
     if (this != &list)
     {
-        // if(head)
-        // {
-        //     MateriaNode *tmp = head;
-        //     while(tmp)
-        //     {
-        //         free(tmp->data);
-        //         tmp = tmp->next;
-        //     }
-        // }
+        if(head)
+        {
+            MateriaNode *tmp = head;
+            while(tmp)
+            {
+                delete tmp->data;
+                tmp = tmp->next;
+            }
+        }
         this->head = list.head;
     }
     return (*this);
+}
+int check_for_duplicate_add(LinkedList *l, MateriaNode *n)
+{
+    MateriaNode *tmp = l->head;
+    while(tmp)
+    {
+        if (tmp->data == n->data)
+        {
+            return (1);
+        }
+        tmp = tmp->next;
+    }
+    return (0);
 }
 
 void LinkedList::add_node(MateriaNode *l)
@@ -54,8 +67,12 @@ void LinkedList::add_node(MateriaNode *l)
         head = l;
         return;
     }
-    MateriaNode *tmp = head;
-    while(tmp->next)
-        tmp = tmp->next;
-    tmp->next = l;
+    if (!check_for_duplicate_add(this, l))
+    {
+        MateriaNode *tmp = head;
+        while(tmp->next)
+            tmp = tmp->next;
+        tmp->next = l;
+    }
+    return;
 }

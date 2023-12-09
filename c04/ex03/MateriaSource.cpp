@@ -6,11 +6,12 @@
 /*   By: mokhalil <mokhalil@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 11:37:12 by mokhalil          #+#    #+#             */
-/*   Updated: 2023/12/08 23:25:10 by mokhalil         ###   ########.fr       */
+/*   Updated: 2023/12/09 13:29:49 by mokhalil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
+#include "LinkedList.hpp"
 
 MateriaSource::MateriaSource()
 {
@@ -54,7 +55,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource & obj)
 
 void MateriaSource::learnMateria(AMateria *m)
 {
-    if (!m)
+    if (!m || (m->getType().compare("ice") && m->getType().compare("cure")))
         return ;
     else
     {
@@ -62,7 +63,7 @@ void MateriaSource::learnMateria(AMateria *m)
     	{
 			if (this->inventory[j] == NULL)
 			{
-                inventory[j] = m;
+                inventory[j] = m->clone();
                 std::cout<<"inventory lear new materia"<<std::endl;
                 return ;
             }
